@@ -36,3 +36,13 @@ jobs:
           context: ./myapp
           push: true
           tags: ghcr.io/${{ steps.owner.outputs.name }}/myapp:latest
+      - name: Deploy to VM
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.VM_HOST }}
+          username: ${{ secrets.VM_USER }}
+          key: ${{ secrets.VM_SSH_KEY }}
+          script: |
+            cd ~/devops_learning/myapp
+            docker-compose pull
+            docker-compose up -d
