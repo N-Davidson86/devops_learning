@@ -36,7 +36,7 @@ jobs:
           context: ./myapp
           push: true
           tags: ghcr.io/${{ steps.owner.outputs.name }}/myapp:latest
-      
+
       - name: Deploy to VM (local)
         run: |
           cd ~/devops_learning/myapp
