@@ -41,3 +41,12 @@
 ```bash
 cd ansible
 ansible-playbook playbook.yml
+
+## 📊 Мониторинг
+
+- **Prometheus** собирает метрики: `http://192.168.1.100:9090`
+- **Grafana** визуализирует: `http://192.168.1.100:3000` (admin/admin)
+
+**Скриншоты:**
+- [Prometheus Targets](prometheus-targets.png)
+- [Grafana Dashboard](grafana-dashboard.png)
