@@ -1,0 +1,30 @@
+---
+- name: Configure DevOps VM
+  hosts: localhost
+  become: yes
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
+    - name: Install Docker, Compose, Buildx
+      apt:
+        name:
+          - docker.io
+          - docker-compose
+          - docker-buildx-plugin
+        state: present
+
+    - name: Add user to docker group
+      user:
+        name: niko_2
+        groups: docker
+        append: yes
+
+    - name: Create devops_learning directory
+      file:
+        path: /home/niko_2/devops_learning
+        state: directory
+        owner: niko_2
+        group: niko_2
+        mode: '0755'

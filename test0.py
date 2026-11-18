@@ -1,2 +1,0 @@
-print ('Script in working')
-
